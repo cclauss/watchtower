@@ -253,7 +253,7 @@ class CloudWatchLogHandler(logging.Handler):
         self.addFilter(_boto_debug_filter)
 
         # Creating the client should be the final call in __init__, after all instance attributes are set.
-        # This ensures that failing to create the session will not result in any missing attribtues.
+        # This ensures that failing to create the session will not result in any missing attributes.
         if boto3_client is None and boto3_profile_name is None:
             self.cwl_client = boto3.client("logs")
         elif boto3_client is not None and boto3_profile_name is None:
